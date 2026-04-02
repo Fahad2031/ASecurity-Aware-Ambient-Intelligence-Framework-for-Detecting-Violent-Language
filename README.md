@@ -1,20 +1,156 @@
-# ASecurity-Aware-Ambient-Intelligence-Framework-for-Detecting-Violent-Language
+# 📘 ASecurity-Aware Ambient Intelligence Framework for Detecting Violent Language in Airline Customer Reviews
 
-This repository implements a security-aware ambient intelligence framework for the detection of violent and threatening language in airline customer reviews. The proposed approach leverages advanced natural language processing (NLP) techniques and supervised machine learning models to perform multi-class classification of user-generated content into non-harmful, negative, and threatening categories.
+## 🔍 Overview
+This repository provides the official implementation accompanying our MDPI submission on a **security-aware ambient intelligence framework** for detecting violent and threatening language in airline customer reviews.  
 
-The framework is designed with an emphasis on contextual awareness and adaptive intelligence, enabling its integration into real-time monitoring systems for proactive risk mitigation. It incorporates comprehensive data preprocessing, feature engineering, and model evaluation pipelines, alongside detailed error analysis to assess model behavior, particularly under class imbalance and the presence of synthetically generated samples.
+The framework leverages natural language processing (NLP) and supervised machine learning to identify safety-critical signals in user-generated content, supporting **proactive risk monitoring** in aviation service environments.  
 
-Experimental results demonstrate the effectiveness of the proposed approach in identifying rare but critical instances of harmful language, highlighting its potential application in intelligent content moderation, aviation safety enhancement, and customer experience management. This repository provides reproducible code, datasets (where permissible), and evaluation protocols to support further research and practical deployment in security-sensitive domains.
-# Key Contributions:
-This repository makes the following key contributions:
-1. A novel security-aware ambient intelligence framework for detecting violent and threatening language in airline customer reviews, addressing the growing need for intelligent content moderation in safety-critical domains.<br>
+Unlike traditional sentiment analysis systems, this work focuses on **rare but high-impact threatening expressions**, addressing challenges such as **class imbalance**, **context ambiguity**, and **synthetic data augmentation**.
 
-2. A multi-class classification approach that distinguishes between non-harmful, negative, and explicitly threatening content, enabling finer-grained analysis compared to traditional binary sentiment models.<br>
+---
 
-3. A robust experimental pipeline including data preprocessing, feature engineering, model training, and systematic evaluation using standard performance metrics.<br>
+## ❓ Problem Statement
+Airline customer reviews may contain implicit or explicit threats that can indicate safety risks. However, such instances are:
 
-4. Comprehensive error analysis with an explicit taxonomy, providing insights into model limitations such as false negatives in minority (threat) classes and misclassification due to linguistic ambiguity.<br>
+- Rare (severe class imbalance)  
+- Context-dependent  
+- Often misclassified by standard sentiment models  
 
-5. Investigation of class imbalance and synthetic data effects, highlighting their impact on model generalization and proposing mitigation strategies such as resampling, threshold tuning, and cost-sensitive learning.<br>
+This creates a need for **security-aware intelligent systems** capable of detecting harmful intent beyond polarity analysis.
 
-6. Reproducible and extensible implementation, enabling researchers and practitioners to replicate results, benchmark models, and extend the framework to other domains involving harmful language detection.<br>
+---
+
+## 🎯 Research Objectives
+- Develop a multi-class classification framework for detecting violent language  
+- Evaluate model robustness under **imbalanced and partially synthetic datasets**  
+- Analyze model behavior through **systematic error analysis**  
+- Assess applicability in **real-world operational settings**
+
+---
+
+## 🧠 Contributions
+- A **security-aware ambient intelligence framework** tailored to airline review analysis  
+- A **multi-class classification scheme** (non-harmful, negative, threatening)  
+- A full **experimental pipeline** including preprocessing, training, and evaluation  
+- A detailed **error analysis with taxonomy and real examples**  
+- An empirical study on **class imbalance and synthetic data effects**  
+- A **reproducible implementation** for research and deployment  
+
+---
+
+## 📊 Dataset Description
+
+| Attribute | Description |
+|----------|------------|
+| Domain | Airline customer reviews |
+| Classes | 0: Non-harmful, 1: Negative, 2: Threatening |
+| Data Sources | Real reviews + synthetically generated threatening samples |
+| Key Challenge | Severe class imbalance |
+
+### ⚠️ Important Note on Synthetic Data
+To address the scarcity of threatening content, synthetic samples were introduced.  
+
+To ensure evaluation integrity:
+
+- Synthetic data is **restricted to training (where applicable)**  
+- Test data is **carefully controlled to avoid leakage**  
+- A `source` attribute is provided:
+  - `real`
+  - `synthetic`
+
+---
+
+## ⚙️ Methodology
+
+### Pipeline
+1. Data preprocessing and cleaning  
+2. Feature extraction (e.g., TF-IDF / embeddings)  
+3. Model training  
+4. Performance evaluation  
+5. Error analysis  
+
+### Models Evaluated
+- Logistic Regression (baseline)  
+- (Optional extension) Transformer-based models (e.g., BERT)
+
+---
+
+## 📈 Experimental Setup
+
+### Evaluation Metrics
+- Accuracy  
+- Precision, Recall, F1-score (per class)  
+- Confusion Matrix  
+
+### Key Focus
+Special emphasis is placed on:
+
+- **Recall of the threatening class (minority class)**  
+- Trade-offs between precision and recall  
+
+---
+
+## ⚖️ Handling Class Imbalance
+
+To mitigate imbalance effects, the following strategies are explored:
+
+- Class weighting  
+- Threshold tuning  
+- (Optional) Oversampling techniques (e.g., SMOTE)
+
+---
+
+## 🧪 Results Summary
+The results indicate that:
+
+- The model performs well on majority classes  
+- Detection of threatening content remains challenging due to:
+  - Data scarcity  
+  - Linguistic ambiguity  
+
+This highlights the importance of **imbalance-aware learning strategies**.
+
+---
+
+## 🔍 Error Analysis
+
+A structured error analysis was conducted using confusion matrices and manual inspection.
+
+### Key Error Types
+
+| Error Type | Example | Explanation |
+|-----------|--------|------------|
+| False Negative (Threat missed) | “You will regret this” | Implicit threat, lacks explicit keywords |
+| False Positive | “This delay is killing me” | Figurative expression misclassified |
+| Ambiguous Context | “I’ll take action” | Requires contextual interpretation |
+
+### Insights
+- The model struggles with **implicit and sarcastic threats**  
+- Threshold tuning can improve minority class detection  
+- Context-aware models may further enhance performance  
+
+---
+
+## 🌍 Operational Validation Scenario
+
+To approximate real-world deployment:
+
+- Class distributions were analyzed under **imbalanced conditions**  
+- The framework is designed for:
+  - Real-time monitoring  
+  - Integration with airline feedback systems  
+  - Alert generation for high-risk content  
+
+---
+
+## 🔁 Reproducibility
+
+To ensure full reproducibility:
+
+- Fixed random seeds are used  
+- All preprocessing steps are documented  
+- Configuration files are provided  
+
+### ▶️ Run Example
+```bash
+python train.py --config configs/base.yaml
