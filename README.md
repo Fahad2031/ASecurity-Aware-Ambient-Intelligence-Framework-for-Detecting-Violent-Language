@@ -7,7 +7,6 @@ The framework leverages natural language processing (NLP) and supervised machine
 
 Unlike traditional sentiment analysis systems, this work focuses on **rare but high-impact threatening expressions**, addressing challenges such as **class imbalance**, **context ambiguity**, and **synthetic data augmentation**.
 
----
 
 ## ❓ Problem Statement
 Airline customer reviews may contain implicit or explicit threats that can indicate safety risks. However, such instances are:
@@ -18,7 +17,6 @@ Airline customer reviews may contain implicit or explicit threats that can indic
 
 This creates a need for **security-aware intelligent systems** capable of detecting harmful intent beyond polarity analysis.
 
----
 
 ## 🎯 Research Objectives
 - Develop a multi-class classification framework for detecting violent language  
@@ -26,7 +24,6 @@ This creates a need for **security-aware intelligent systems** capable of detect
 - Analyze model behavior through **systematic error analysis**  
 - Assess applicability in **real-world operational settings**
 
----
 
 ## 🧠 Contributions
 - A **security-aware ambient intelligence framework** tailored to airline review analysis  
@@ -36,7 +33,6 @@ This creates a need for **security-aware intelligent systems** capable of detect
 - An empirical study on **class imbalance and synthetic data effects**  
 - A **reproducible implementation** for research and deployment  
 
----
 
 ## 📊 Dataset Description
 
@@ -54,11 +50,6 @@ To ensure evaluation integrity:
 
 - Synthetic data is **restricted to training (where applicable)**  
 - Test data is **carefully controlled to avoid leakage**  
-- A `source` attribute is provided:
-  - `real`
-  - `synthetic`
-
----
 
 ## ⚙️ Methodology
 
@@ -73,8 +64,6 @@ To ensure evaluation integrity:
 - Logistic Regression (baseline)  
 - (Optional extension) Transformer-based models (e.g., BERT)
 
----
-
 ## 📈 Experimental Setup
 
 ### Evaluation Metrics
@@ -88,7 +77,6 @@ Special emphasis is placed on:
 - **Recall of the threatening class (minority class)**  
 - Trade-offs between precision and recall  
 
----
 
 ## ⚖️ Handling Class Imbalance
 
@@ -98,7 +86,6 @@ To mitigate imbalance effects, the following strategies are explored:
 - Threshold tuning  
 - (Optional) Oversampling techniques (e.g., SMOTE)
 
----
 
 ## 🧪 Results Summary
 The results indicate that:
@@ -110,7 +97,6 @@ The results indicate that:
 
 This highlights the importance of **imbalance-aware learning strategies**.
 
----
 
 ## 🔍 Error Analysis
 
@@ -129,7 +115,6 @@ A structured error analysis was conducted using confusion matrices and manual in
 - Threshold tuning can improve minority class detection  
 - Context-aware models may further enhance performance  
 
----
 
 ## 🌍 Operational Validation Scenario
 
@@ -141,8 +126,6 @@ To approximate real-world deployment:
   - Integration with airline feedback systems  
   - Alert generation for high-risk content  
 
----
-
 ## 🔁 Reproducibility
 
 To ensure full reproducibility:
@@ -151,6 +134,3 @@ To ensure full reproducibility:
 - All preprocessing steps are documented  
 - Configuration files are provided  
 
-### ▶️ Run Example
-```bash
-python train.py --config configs/base.yaml
