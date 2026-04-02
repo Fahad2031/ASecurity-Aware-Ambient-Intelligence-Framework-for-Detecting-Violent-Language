@@ -1,0 +1,2 @@
+# ASecurity-Aware-Ambient-Intelligence-Framework-for-Detecting-Violent-Language
+This repository implements a security-aware ambient intelligence framework for the detection of violent and threatening language in airline customer reviews. The proposed approach leverages advanced natural language processing (NLP) techniques and supervised machine learning models to perform multi-class classification.
